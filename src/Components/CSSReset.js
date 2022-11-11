@@ -8,6 +8,7 @@ export const CSSReset = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
+    overflow-x: hidden;
     font-family: sans-serif;
   }
   /* NextJS */

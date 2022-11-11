@@ -1,8 +1,10 @@
 import config from "../config.json"
-import styled from "styled-components"
 import { CSSReset } from "../src/Components/CSSReset";
 import Menu from "../src/Components/Menu";
-import { StyledTimeline } from "../src/Components/TImeline";
+import Timeline from "../src/Components/Timeline";
+import Header from "../src/Components/Header";
+import Favoritos from "../src/Components/Favoritos";
+
 
 function HomePage() {
     console.log(config.playlists);
@@ -12,79 +14,15 @@ function HomePage() {
             <div style={{
                 display: "flex",
                 flexDirection: "column",
-                flex: 1}}>
+                flex: 1,
+                 }}>
                 <Menu />
-                <Header />
+                <Header banner="https://www.xp-pen.com/Uploads/user/20190320/bf5436cdaa628ace8a14db11a30c0ed1.jpg"/>
                 <Timeline playlists={config.playlists}/>
+                <Favoritos aluraTubes={config.aluratubes}/>
             </div>
         </>
     ) 
 }
   
 export default HomePage
-
-const StyledHeader = styled.div`
-    img{
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-    }
-    .user-info{
-        margin-top: 50px;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: 16px 32px;
-        gap: 16px;
-    }
-`;
-function Header(){
-    return(
-        <StyledHeader>
-            {/* <img src="" alt="" /> */}
-            <section className="user-info">
-                <img src={`https://github.com/${config.github}`} alt="" />
-                <div>
-                    <h2>{config.name}</h2>
-                    <p>{config.job}</p>
-                </div>
-                
-                
-            </section>
-           
-        </StyledHeader>
-    )
-}
-
-function Timeline(propriedades) {
-    // console.log("Dentro do componente", propriedades.playlists);
-    const playlistNames = Object.keys(propriedades.playlists);
-    // Statement
-    // Retorno por expressão
-    return (
-        <StyledTimeline>
-            {playlistNames.map((playlistName) => {
-                const videos = propriedades.playlists[playlistName];
-                console.log(playlistName);
-                console.log(videos);
-                return (
-                    <section>
-                        <h2>{playlistName}</h2>
-                        <div>
-                            {videos.map((video) => {
-                                return (
-                                    <a href={video.url}>
-                                        <img src={video.thumb} />
-                                        <span>
-                                            {video.title}
-                                        </span>
-                                    </a>
-                                )
-                            })}
-                        </div>
-                    </section>
-                )
-            })}
-        </StyledTimeline>
-    )
-}
