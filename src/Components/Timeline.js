@@ -48,7 +48,6 @@ const StyledTimeline = styled.div`
 `;
 
 export default function Timeline({searchValue, ...propriedades}) {
-    // console.log("Dentro do componente", propriedades.playlists);
     const playlistNames = Object.keys(propriedades.playlists);
     // Statement
     // Retorno por expressão

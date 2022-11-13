@@ -1,5 +1,4 @@
 import config from "../config.json"
-import { CSSReset } from "../src/Components/CSSReset";
 import Menu from "../src/Components/Menu/Menu";
 import Timeline from "../src/Components/Timeline";
 import Header from "../src/Components/Header";
@@ -9,12 +8,11 @@ import React from "react";
 const valorDoFiltro = "Time"
 
 function HomePage() {
-    console.log(config.playlists);
+    // console.log(config.playlists);
     const [valorDoFiltro, setValorDoFiltro] = React.useState("")
 //    console.log("Search", valorDaBusca);
     return(
         <>
-            <CSSReset />
             <div style={{
                 display: "flex",
                 flexDirection: "column",

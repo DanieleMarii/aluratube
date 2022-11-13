@@ -34,7 +34,7 @@ const StyledFavoritos = styled.div`
         font-weight: 400;
         font-size: 14px;
         line-height: 16px;
-        color: #000000;
+        text-decoration: none;
     }
     
 
@@ -43,14 +43,14 @@ const StyledFavoritos = styled.div`
 
 export default function Favoritos(props) {
     const aluraTubesItens = Object.keys(props.aluraTubes)
-    console.log(aluraTubesItens);
+    // console.log(aluraTubesItens);
     return (
         <StyledFavoritos>
             <h2>AluraTubes Favoritos</h2>
             <div>
                 {aluraTubesItens.map((aluraTubesItem) => {
                     const tubes = props.aluraTubes[aluraTubesItem]
-                    console.log(tubes);
+                    // console.log(tubes);
                     return (
                         <div key={aluraTubesItem} className="aluraTubesItens">
                             {tubes.map((tube) => {

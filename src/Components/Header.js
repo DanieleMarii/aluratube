@@ -3,6 +3,7 @@ import config from "../../config.json"
 
 
 const StyledHeader = styled.div`
+    background-color: ${({theme}) => theme.backgroundLevel1};
     width: 100vw;
     box-sizing: border-box;
     .profile{
