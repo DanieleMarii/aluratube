@@ -25,9 +25,10 @@ const StyledHeader = styled.div`
     .banner img{
         /* width: 100%; */
         /* height: 100%; */
-        object-fit: ;
+        /* object-fit: ; */
     }
 `;
+
 
 export default function Header(props){
     return(

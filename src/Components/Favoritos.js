@@ -52,10 +52,10 @@ export default function Favoritos(props) {
                     const tubes = props.aluraTubes[aluraTubesItem]
                     console.log(tubes);
                     return (
-                        <div className="aluraTubesItens">
+                        <div key={aluraTubesItem} className="aluraTubesItens">
                             {tubes.map((tube) => {
                                 return (
-                                    <a target={"_blank"} href={tube.link_canal}>
+                                    <a key={tube.link_canal} target={"_blank"} href={tube.link_canal}>
                                         <img src={tube.url_foto} alt="" />
                                         <span>{tube.nome_aluratube}</span>
                                     </a>

@@ -47,7 +47,7 @@ const StyledTimeline = styled.div`
   }
 `;
 
-export default function Timeline(propriedades) {
+export default function Timeline({searchValue, ...propriedades}) {
     // console.log("Dentro do componente", propriedades.playlists);
     const playlistNames = Object.keys(propriedades.playlists);
     // Statement
@@ -57,12 +57,18 @@ export default function Timeline(propriedades) {
             {playlistNames.map((playlistName) => {
                 const videos = propriedades.playlists[playlistName];
                 return (
-                    <section>
+                    <section key={playlistName}>
                         <h2>{playlistName}</h2>
                         <div>
-                            {videos.map((video) => {
+                            {videos.filter((video) =>{
+                              const titleNormalized = video.title.toLowerCase();
+                              const searchValueNormalized = searchValue.toLowerCase();
+
+                              return titleNormalized.includes(searchValueNormalized);
+                            })
+                              .map((video) => {
                                 return (
-                                    <a href={video.url}>
+                                    <a key={video.url} href={video.url}>
                                         <img src={video.thumb} />
                                         <span>
                                             {video.title}
